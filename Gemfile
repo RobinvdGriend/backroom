@@ -35,6 +35,10 @@ gem 'bcrypt', '~> 3.1.7'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  # Create fake names for sample users
+  gem 'faker'
+  # Use minitest-reporters for nice test ouput
+  gem 'minitest-reporters'
 end
 
 group :development do
