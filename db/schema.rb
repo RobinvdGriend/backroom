@@ -11,14 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160106183322) do
+ActiveRecord::Schema.define(version: 20160111174251) do
 
   create_table "memberships", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "room_id"
-    t.integer  "role"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "role",       default: 0
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   add_index "memberships", ["room_id"], name: "index_memberships_on_room_id"
@@ -36,5 +36,7 @@ ActiveRecord::Schema.define(version: 20160106183322) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
 
 end
