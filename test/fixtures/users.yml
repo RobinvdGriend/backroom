@@ -2,11 +2,11 @@
 
 user_1:
   name: <%= Faker::Internet.user_name %>
-  email: <%= Faker::Internet.safe_email("user_1") %>
+  email: <%= Faker::Internet.safe_email %>
 
 <% (2..99).each do |n| %>
 user_<%= n %>:
   name: <%= Faker::Internet.user_name %>
-  email: <%= Faker::Internet.safe_email("user_1") %>
+  email: <%= Faker::Internet.safe_email %>
 <% end %>  
 
