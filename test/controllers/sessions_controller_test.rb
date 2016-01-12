@@ -15,4 +15,12 @@ class SessionsControllerTest < ActionController::TestCase
     assert session[:user_id] == @user.id
     assert_redirected_to user_path(@user)
   end 
+
+  test "should log out user" do
+    delete :delete
+
+    # Check to see if we've been logged out
+    assert session[:user_id] == nil
+    assert_redirected_to root_path
+  end
 end

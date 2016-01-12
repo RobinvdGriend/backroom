@@ -17,12 +17,12 @@ class SessionsController < ApplicationController
   end
 
   def delete
-    if user = User.find_by(id: params[:id])
+    if user = logged_in_user
       log_out_user(user)
       flash[:notice] = "You have been logged out"
       redirect_to root_path
     else
-      flash[:error] = "You have already been logged out"
+      flash[:notice] = "You have already been logged out"
       redirect_to root_path
     end
   end
