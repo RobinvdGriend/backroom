@@ -26,4 +26,9 @@ class UserTest < ActiveSupport::TestCase
     
     assert_not @user.valid?
   end
+
+  test "email should not exceed maximum length" do
+    @user.email = "a" * 256
+    assert_not @user.valid?
+  end
 end
