@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_many :memberships
   has_many :rooms, through: :memberships
+  has_many :posts
 
   # TODO: Add db constraint for email uniqueness
   # TODO: Add more elegant email validation
