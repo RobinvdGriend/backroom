@@ -5,11 +5,11 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @user = User.find_by(email: params[:email])
+    user = User.find_by(email: params[:email])
     
-    if @user &&  @user.authenticate(params[:password])
-      session[:user_id] = @user.id
-      redirect_to user_path(@user)
+    if user &&  user.authenticate(params[:password])
+      log_in_user(user)
+      redirect_to user_path(user)
     else
       flash[:error] = "Wrong login information"
       render :new
@@ -17,5 +17,13 @@ class SessionsController < ApplicationController
   end
 
   def delete
+    if user = User.find_by(id: params[:id])
+      log_out_user(user)
+      flash[:notice] = "You have been logged out"
+      redirect_to root_path
+    else
+      flash[:error] = "You have already been logged out"
+      redirect_to root_path
+    end
   end
 end
