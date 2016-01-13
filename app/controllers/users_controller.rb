@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def show
-    @user = User.find_by(id: params[:id])
+    @user = User.find(params[:id])
   end
   
   def new
@@ -8,9 +8,11 @@ class UsersController < ApplicationController
 
   def create
     # TODO: Log in user upon succesful creation
-    if user = User.create(user_params)
+    @user = User.new(user_params)
+
+    if @user.save
       flash[:succes] = "User has succesfully been created"
-      redirect_to user_path(user)
+      redirect_to user_path(@user)
     else
       render :new
     end

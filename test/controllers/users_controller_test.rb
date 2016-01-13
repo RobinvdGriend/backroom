@@ -9,4 +9,13 @@ class UsersControllerTest < ActionController::TestCase
                             password_confirmation: "password" }
     end
   end
+
+  test "should not create user with invalid signup information" do
+    assert_no_difference "User.count" do
+      post :create, user: { name: "",
+                            email: "", 
+                            password: "invalid",
+                            password_confirmation: "wrong" }
+    end
+  end
 end
