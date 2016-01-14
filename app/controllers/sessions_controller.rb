@@ -1,6 +1,4 @@
 class SessionsController < ApplicationController
-  # TODO: Add tests
-
   def new
   end
 

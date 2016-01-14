@@ -28,4 +28,14 @@ class PostTest < ActiveSupport::TestCase
     @post.title = "a" * 121
     assert_not @post.valid?
   end
+
+  test "user_id should not be blank" do
+    @post.user_id = nil
+    assert_not @post.valid?
+  end
+
+  test "room_id should not be blank" do
+    @post.room_id = nil
+    assert_not @post.valid?
+  end
 end
