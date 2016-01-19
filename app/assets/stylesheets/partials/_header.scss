@@ -1,0 +1,32 @@
+.logo {
+  float: left;
+  display: inline-block;
+
+  vertical-align: middle;
+  a {
+    color: $header-color;
+    font-size: 28px;
+    font-weight: $bold;
+    line-height: 24px;
+    margin: 0;
+  }
+}
+
+.navigation-menu {
+  float: right;
+
+  vertical-align: middle;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  li {
+    display: inline-block;
+    a {
+      color: $header-color;
+      font-size: $large-font-size;
+      margin: 0 1em 0 0;
+      line-height: 24px;
+      text-decoration: none;
+    }
+  }
+}

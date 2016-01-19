@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   post "login" => "sessions#create"
   get "logout" => "sessions#delete"
 
+  get "style_guide" => "pages#style_guide"
+
   resources :users
 
   # The priority is based upon order of creation: first created -> highest priority.

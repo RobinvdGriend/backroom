@@ -1,0 +1,19 @@
+.button {
+  border-radius: 3px;
+  border: solid 1px;
+  color: white;
+  padding: 6px 18px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: $large-font-size;
+}
+
+.green-button {
+  @extend .button;
+  border: solid scale-color($green, $lightness: -30%) 1px;
+  background-image: linear-gradient(
+    $green,
+    scale-color($green, $lightness: -15%)
+  );
+}

@@ -26,6 +26,11 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+# Use bourbon as a sass mixin-library
+gem 'bourbon', '~> 4.2.6'
+# Needed for normalize.scss
+gem 'support-for', '~> 1.0'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

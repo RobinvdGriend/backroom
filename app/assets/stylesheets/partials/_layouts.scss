@@ -1,0 +1,15 @@
+.l-constrained {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+header {
+  padding: 0.5em 0;
+  border-bottom: $border-color solid 1px;
+  overflow: auto;
+}
+
+aside {
+  width: 30%;
+  float: right;
+}
