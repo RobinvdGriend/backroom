@@ -1,5 +1,5 @@
 <header>
-  <div class="l-constrained">
+  <div class="l-constrained clearfix">
     <div class="logo">
       <a>Backroom</a>
     </div>
@@ -10,7 +10,7 @@
       <% if logged_in_user %>
         <li><%= link_to "Profile", user_path(@current_user) %></li>
       <% else %>
-        <li><%= link_to "Login", login_path, class:"green-button" %></li>
+        <li><%= link_to "Login", login_path %></li>
       <% end %>
     </ul>
   </div>
