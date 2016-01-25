@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :correct_user, only: [:edit, :update]
+
   def show
     @user = User.find(params[:id])
   end
@@ -19,7 +21,19 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+  end
+
   private
+
+  def correct_user
+    @user = User.find(params[:id])
+
+    unless logged_in_user == @user
+      flash[:error] = "You can only edit your own profile"
+      redirect_to root_path
+    end
+  end
 
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)

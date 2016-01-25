@@ -1,0 +1,12 @@
+<h1>Profile</h1>
+<table>
+  <tr>
+    <th>Username</th>
+    <td><%= @user.name %></td>
+  </tr>
+</table>
+<% if logged_in_user == @user %>
+  <%= link_to "Edit profile", edit_user_path %>
+<% end %>
+<h2>Rooms</h2>
+<h2>Posts</h2>
