@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
   end
 
   def delete
-    if user = logged_in_user
+    if logged_in?
       log_out_user(user)
       flash[:notice] = "You have been logged out"
       redirect_to root_path

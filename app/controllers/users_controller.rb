@@ -29,7 +29,7 @@ class UsersController < ApplicationController
   def correct_user
     @user = User.find(params[:id])
 
-    unless logged_in_user == @user
+    unless current_user == @user
       flash[:error] = "You can only edit your own profile"
       redirect_to root_path
     end
