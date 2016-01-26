@@ -8,7 +8,7 @@ class Room < ActiveRecord::Base
   def add_user(user, options = {})
     role = options.fetch(:role, :member)
 
-    self.memberships.create(room_id:  self.id, user_id: user.id, role: Membership.roles[role])
+    self.memberships.create(room_id: self.id, user_id: user.id, role: Membership.roles[role])
   end
 
   def update_role(args)
@@ -16,5 +16,13 @@ class Room < ActiveRecord::Base
     role = args[:role]
 
     self.memberships.find_by(user_id: user.id).update(role: role)
+  end
+
+  def is_member?(user)
+    memberships.where(user_id: user.id).any?
+  end
+
+  def is_moderator?(user)
+    is_member?(user) && memberships.find_by(user_id: user.id).role == "moderator"
   end
 end

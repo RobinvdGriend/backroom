@@ -57,4 +57,27 @@ class RoomTest < ActiveSupport::TestCase
     assert_raises { @room.update_role user: @user }
     assert_raises { @room.update_role role: :member }
   end
+
+  test "is_member? should return true if user is in room" do
+    @room.add_user(@user)
+    assert @room.is_member?(@user)
+  end
+
+  test "is_member? should return false if user is not in room" do
+    assert_not @room.is_member?(@user)
+  end
+
+  test "is_moderator? should return true if user is moderator in room" do
+    @room.add_user(@user, role: :moderator)
+    assert @room.is_moderator?(@user)
+  end
+
+  test "is_moderator? should return false if user is just a member in room" do
+    @room.add_user(@user, role: :member)
+    assert_not @room.is_moderator?(@user)
+  end
+
+  test "is_moderator? should return false if user is not in room" do
+    assert_not @room.is_moderator?(@user)
+  end
 end
