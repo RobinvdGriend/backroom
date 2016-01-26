@@ -2,7 +2,7 @@ require 'test_helper'
 
 class RoomTest < ActiveSupport::TestCase
   def setup
-    @room = Room.new(name: "Example Room")
+    @room = Room.create(name: "Example Room")
     @user = User.first
   end
 
@@ -26,9 +26,6 @@ class RoomTest < ActiveSupport::TestCase
   end
 
   test "add_user without role argument should add user as member" do
-    # We can't add users to an unsaved room
-    @room.save
-
     assert_difference("@room.memberships.count", 1) do
       @room.add_user(@user)
     end
@@ -37,24 +34,18 @@ class RoomTest < ActiveSupport::TestCase
   end
 
   test "add_user with role: :member should add user as member" do
-    # We can't add users to an unsaved room
-    @room.save
     @room.add_user(@user, role: :member)
     
     assert_equal "member", @room.memberships.first.role
   end
 
   test "add_user with role: :moderator should add user as moderator" do
-    # We can't add users to an unsaved room
-    @room.save
     @room.add_user(@user, role: :moderator)
 
     assert_equal "moderator", @room.memberships.first.role
   end
 
   test "update_role should change the role of a member" do
-    # We can't add users to an unsaved room
-    @room.save
     @room.add_user(@user, role: :member)
 
     @room.update_role(user: @user, role: :moderator)
@@ -62,9 +53,6 @@ class RoomTest < ActiveSupport::TestCase
   end
 
   test "update_role with missing arguments should raise an error" do
-    # We can't add users to an unsaved room
-    @room.save
-
     assert_raises { @room.update_role }
     assert_raises { @room.update_role user: @user }
     assert_raises { @room.update_role role: :member }
