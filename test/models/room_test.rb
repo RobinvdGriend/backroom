@@ -2,7 +2,7 @@ require 'test_helper'
 
 class RoomTest < ActiveSupport::TestCase
   def setup
-    @room = Room.create(name: "Example Room")
+    @room = Room.first
     @user = User.first
   end
 

@@ -2,12 +2,12 @@ require 'test_helper'
 
 class PostTest < ActiveSupport::TestCase
   def setup
-    @user = users(:user_1)
-    @room = rooms(:room_1)
-    @post = Post.new(title: "Test title",
-                     body: "Example test for test post",
-                     user_id: @user.id,
-                     room_id: @room.id)
+    @user = User.first
+    @room = Room.first
+    @post = Post.create(title: "Test title",
+                        body: "Example test for test post",
+                        user_id: @user.id,
+                        room_id: @room.id)
   end
 
   test "should be valid" do
