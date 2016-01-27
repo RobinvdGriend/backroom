@@ -1,4 +1,6 @@
 class Room < ActiveRecord::Base
+  # TODO: Add description attribute
+
   has_many :memberships
   has_many :users, through: :memberships
   has_many :posts, dependent: :destroy

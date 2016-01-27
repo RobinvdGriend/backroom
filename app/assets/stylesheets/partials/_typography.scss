@@ -8,13 +8,22 @@ h1 {
 }
 
 h2 {
-  font-size: 1.5em;
+  font-size: 1.7em;
   color: $header-color;
 }
 
 h3 {
-  font-size: 1.25em;
+  font-size: 1.2em;
   color: $header-color;
+}
+
+a {
+  font-size: 1em;
+  color: $link-color;
+
+  &:visited {
+    color: $link-color-visited;
+  }
 }
 
 p {
