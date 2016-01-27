@@ -19,7 +19,7 @@ class Room < ActiveRecord::Base
   end
 
   def is_member?(user)
-    memberships.where(user_id: user.id).any?
+    user && memberships.where(user_id: user.id).any?
   end
 
   def is_moderator?(user)

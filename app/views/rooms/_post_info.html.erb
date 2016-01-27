@@ -1,2 +1,2 @@
 <h3><%= link_to post_info.title, post_path(post_info) %></h3>
-<%= link_to post_info.user.name, user_path(post_info.user) %>
+<%= author_link_or_secret(post_info) %>

@@ -67,6 +67,10 @@ class RoomTest < ActiveSupport::TestCase
     assert_not @room.is_member?(@user)
   end
 
+  test "is_member? should return false if user is nil" do
+    assert_not @room.is_member?(nil)
+  end
+
   test "is_moderator? should return true if user is moderator in room" do
     @room.add_user(@user, role: :moderator)
     assert @room.is_moderator?(@user)
