@@ -1,5 +1,4 @@
 class RoomsController < ApplicationController
-  before_action :require_login, only: [:show]
   before_action :require_member, only: [:show]
 
   def show
@@ -9,7 +8,7 @@ class RoomsController < ApplicationController
   private
 
   def require_login
-    unless logged_in_user
+    unless logged_in?
       flash[:error] = "You need to be logged in to visit a room's page"
       redirect_to login_path
     end
@@ -17,10 +16,6 @@ class RoomsController < ApplicationController
 
   def require_member
     @room = Room.find(params[:id])
-
-    unless @room.users.find_by(id: logged_in_user.id)
-      flash[:error] = "You have to be a member to visit a room's page"
-      redirect_to root_path
-    end
+    @room.is_member?(current_user)
   end
 end
