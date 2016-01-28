@@ -6,6 +6,8 @@ class ApplicationController < ActionController::Base
   # Make methods available to views
   helper_method :current_user, :logged_in?
 
+  private
+
   def current_user
     if user_id = session[:user_id]
       @current_user ||= User.find_by(id: user_id)
@@ -14,5 +16,13 @@ class ApplicationController < ActionController::Base
 
   def logged_in?
     !@current_user.nil?
+  end
+
+  def log_in_user(user)
+    session[:user_id] = user.id
+  end
+
+  def log_out_user(user)
+    session[:user_id] = nil
   end
 end

@@ -24,6 +24,14 @@ class UsersControllerTest < ActionController::TestCase
     end
   end
 
+  test "should login user upon signup" do
+    post :create, user: { name: "Test User",
+                          email: "testuser@example.com",
+                          password: "password",
+                          password_confirmation: "password" }
+    assert_not session[:user_id].nil?
+  end
+
   test "should only show edit profile linked when user accesses their own page" do
     get :show, id: @user.id
     assert_select "a[href=?]", edit_user_path(@user), false

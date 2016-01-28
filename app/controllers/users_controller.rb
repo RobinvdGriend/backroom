@@ -11,11 +11,11 @@ class UsersController < ApplicationController
   end
 
   def create
-    # TODO: Log in user upon succesful creation
     @user = User.new(user_params)
 
     if @user.save
       flash[:succes] = "User has succesfully been created"
+      log_in_user(@user)
       redirect_to user_path(@user)
     else
       render :new

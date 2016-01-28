@@ -24,14 +24,4 @@ class SessionsController < ApplicationController
       redirect_to root_path
     end
   end
-
-  private
-
-  def log_in_user(user)
-    session[:user_id] = user.id
-  end
-
-  def log_out_user(user)
-    session[:user_id] = nil
-  end
 end
