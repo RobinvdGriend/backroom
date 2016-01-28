@@ -20,6 +20,10 @@ class RoomsController < ApplicationController
 
   def require_member
     @room = Room.find(params[:id])
-    @room.is_member?(current_user)
+    
+    unless @room.is_member?(current_user)
+      flas[:error] = "You need to be a member of a room to visit it's page"
+      redirect_to root_path
+    end
   end
 end
