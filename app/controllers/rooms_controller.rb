@@ -1,6 +1,10 @@
 class RoomsController < ApplicationController
   before_action :require_member, only: [:show]
 
+  def index
+    @rooms = Room.limit(30)
+  end
+
   def show
     @posts = @room.posts.last(30)
   end

@@ -6,7 +6,7 @@
 
     <ul class="navigation-menu"> 
       <li><%= link_to "Home", root_path %></li>
-      <li><%= link_to "Rooms", "#" %></li>
+      <li><%= link_to "Rooms", rooms_path %></li>
       <% if logged_in? %>
         <li><%= link_to "Profile", user_path(current_user) %></li>
       <% else %>
