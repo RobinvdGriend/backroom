@@ -1,10 +1,9 @@
 <%# TODO: Different header level for different page %>
-<%# TODO: Change partial to regular template %>
 <h2>Posts</h2>
 <ul class="posts">
   <% @posts.each do |post| %>
     <li class="post">
-      <h3 class="post-lin"><%= link_to post.title, post_path(post) %></h3>
+      <h3 class="post-link"><%= link_to post.title, post_path(post) %></h3>
       <%= author_link_or_secret(post) %>
     </li>
   <% end %>
