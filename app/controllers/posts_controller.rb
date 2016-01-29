@@ -1,4 +1,9 @@
 class PostsController < ApplicationController
+  def index
+    # Add pagination
+    @posts = Post.all
+  end
+
   def create
     @room = Room.find_by(id: params[:id])
     @post = @room.posts.create(post_params)
