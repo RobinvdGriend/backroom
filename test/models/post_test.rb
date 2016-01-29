@@ -38,4 +38,17 @@ class PostTest < ActiveSupport::TestCase
     @post.room_id = nil
     assert_not @post.valid?
   end
+
+  test "is_secret? should return false if user is member" do
+    @room.users << @user
+    assert_not @post.is_secret?(@user)
+  end
+
+  test "is_secret? should return true if user is not member" do
+    assert @post.is_secret?(@user)
+  end
+
+  test "is_secret? should return true if user is nil" do
+    assert @post.is_secret?(nil)
+  end
 end

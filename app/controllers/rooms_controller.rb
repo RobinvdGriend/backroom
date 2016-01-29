@@ -1,11 +1,10 @@
 class RoomsController < ApplicationController
-  before_action :require_member, only: [:show]
-
   def index
     @rooms = Room.limit(30)
   end
 
   def show
+    @room = Room.find(params[:id])
     @posts = @room.posts.last(30)
   end
 
@@ -22,7 +21,7 @@ class RoomsController < ApplicationController
     @room = Room.find(params[:id])
     
     unless @room.is_member?(current_user)
-      flas[:error] = "You need to be a member of a room to visit it's page"
+      flash[:error] = "You need to be a member of a room to visit it's page"
       redirect_to root_path
     end
   end
