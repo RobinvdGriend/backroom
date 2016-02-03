@@ -4,6 +4,7 @@ class RoomTest < ActiveSupport::TestCase
   def setup
     @room = Room.first
     @user = User.first
+    @other_user = User.offset(1).first
   end
 
   test "should be valid" do
@@ -83,5 +84,17 @@ class RoomTest < ActiveSupport::TestCase
 
   test "is_moderator? should return false if user is not in room" do
     assert_not @room.is_moderator?(@user)
+  end
+
+  test "members should return only users with the member role" do
+    @room.add_user(@user, role: :moderator)
+    @room.add_user(@other_user, role: :member)
+
+    assert_includes @room.members, @other_user
+    assert_not_includes @room.members, @user
+  end
+
+  test "members should return an empty array if there are no members" do
+    assert_empty @room.members
   end
 end
