@@ -97,4 +97,16 @@ class RoomTest < ActiveSupport::TestCase
   test "members should return an empty array if there are no members" do
     assert_empty @room.members
   end
+
+  test "moderators should return only users with the moderator role" do
+    @room.add_user(@user, role: :moderator)
+    @room.add_user(@other_user, role: :member)
+
+    assert_includes @room.moderators, @user
+    # assert_not_includes @room.moderators, @other_user
+  end
+
+  test "moderators should return an empty array if there are no moderators" do
+    assert_empty @room.moderators
+  end
 end

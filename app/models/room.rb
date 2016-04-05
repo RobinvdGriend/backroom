@@ -16,7 +16,8 @@ class Room < ActiveRecord::Base
   end
 
   def moderators
-    # TODO: Select only moderators
+    # TODO: Fix this
+    self.users.select('users.*, memberships.role').where(memberships: { role: "moderator" })
   end
 
   def update_role(args)
