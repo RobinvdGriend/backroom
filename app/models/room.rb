@@ -12,12 +12,11 @@ class Room < ActiveRecord::Base
   end
 
   def members
-    self.users.select('users.*, memberships.role').where(memberships: { role: "member" })
+    self.users.select('users.*, memberships.role').where(memberships: { role: Membership.roles["member"] })
   end
 
   def moderators
-    # TODO: Fix this
-    self.users.select('users.*, memberships.role').where(memberships: { role: "moderator" })
+    self.users.select('users.*, memberships.role').where(memberships: { role: Membership.roles["moderator"] })
   end
 
   def update_role(args)

@@ -103,7 +103,7 @@ class RoomTest < ActiveSupport::TestCase
     @room.add_user(@other_user, role: :member)
 
     assert_includes @room.moderators, @user
-    # assert_not_includes @room.moderators, @other_user
+    assert_not_includes @room.moderators, @other_user
   end
 
   test "moderators should return an empty array if there are no moderators" do
