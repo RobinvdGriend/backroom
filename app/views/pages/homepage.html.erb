@@ -5,6 +5,6 @@
   <% if logged_in? %>
     <%= render partial: "rooms/list", layout: "layouts/module", locals: {title: "Your rooms", rooms: current_user.rooms} %>
   <% else %>
-    <%= render partial: "sessions/login", layout: "layouts/module", locals: {title: "Login"} %>
+    <%= render partial: "sessions/form", layout: "layouts/module", locals: {title: "Login"} %>
   <% end %>
 </div>
