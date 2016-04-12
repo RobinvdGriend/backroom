@@ -1,0 +1,14 @@
+.module {
+  background-color: $module-color;
+  border: $border-color solid 1px;
+  padding: 6px 12px;
+}
+
+.module-title{
+  background-color: $module-color;
+  border: $border-color solid 1px;
+  border-bottom: 0;
+  padding: 8px 12px;
+  margin: 0;
+}
+

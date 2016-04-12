@@ -1,0 +1,19 @@
+<div class="l-large-column clearfix">
+  <h1>Latest posts</h1>
+</div>
+<div class="l-small-column clearfix">
+  <h2 class="module-title">Your rooms</h2>
+  <div class="module">
+    <% if current_user.rooms %>
+      <ul class="rooms">
+      <% current_user.rooms.each do |room| %>
+        <li class="room">
+          <%= link_to room.name, room_path(room) %>
+        </li>
+      <% end %>
+      </ul>
+    <% else %>
+      <h3>You are not a member of any rooms yet</h3>
+    <% end %>
+  </div>
+</div>
