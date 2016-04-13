@@ -1,9 +1,9 @@
 module PostsHelper
   def author_link_or_secret(post)
     if post.is_secret?(current_user)
-      return link_to "Secret", "#", class: "post-author is-secret"
+      return "Secret"
     else
-      return link_to post.user.name, user_path(post.user), class: "post-author"
+      return link_to post.user.name, user_path(post.user)
     end
   end
 end

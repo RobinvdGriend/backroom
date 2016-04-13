@@ -13,7 +13,7 @@ class AuthorLinkOrSecretTest < ActionDispatch::IntegrationTest
 
   test "should not show author name of post when not logged in" do
     get post_path(@post)
-    assert_select "a.post-author", "Secret"  
+    assert_select "span.post-info", "Secret"  
   end
 
   test "should not show author name when not member of room" do
@@ -21,7 +21,7 @@ class AuthorLinkOrSecretTest < ActionDispatch::IntegrationTest
     assert_redirected_to user_path(@non_member)
     
     get post_path(@post)
-    assert_select "a.post-author", "Secret"
+    assert_select "span.post-info", "Secret"
   end
 
   test "should show author name when member of room" do
@@ -29,6 +29,6 @@ class AuthorLinkOrSecretTest < ActionDispatch::IntegrationTest
     assert_redirected_to user_path(@member)
     
     get post_path(@post)
-    assert_select "a.post-author", @member.name
+    assert_select "a", @member.name
   end
 end

@@ -7,13 +7,13 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600&subset=latin,latin-ext);
 
 @import 'bourbon';
+@import 'partials/normalize';
 
 @import 'partials/colors';
 @import 'partials/typography';
 @import 'partials/utility';
 
 @import 'partials/base';
-@import 'partials/normalize';
 
 @import 'partials/layouts';
 @import 'partials/modules';

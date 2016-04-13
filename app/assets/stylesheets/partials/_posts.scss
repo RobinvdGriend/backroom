@@ -8,12 +8,23 @@
 }
 
 .post-title {
-}
-
-.post-link {
   margin: 0;
 }
 
-.post-author {
-  font-size: 0.9em;
+.post-link {
+  color: $white;
+  margin: 0;
+
+  &:visited {
+    color: $white;
+  }
+
+  &:hover {
+    color: $light-blue;
+  }
+}
+
+.post-info {
+  color: $light-blue;
+  font-size: 0.85em;
 }
