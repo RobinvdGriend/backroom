@@ -1,7 +1,9 @@
 <div class="l-large-column clearfix">
   <h3 class="module-title">Latest posts</h3>
   <div class="module">
-
+    <ul class="posts">
+      <%= render partial: "posts/post.html.erb", collection: @posts %>
+      </ul>
   </div>
 </div>
 <div class="l-small-column clearfix">
