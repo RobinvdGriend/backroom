@@ -1,36 +1,52 @@
+// Font weights
+$light: 100;
+$regular: 400;
+$bold: 600;
+
+// Base Font
+$base-font-family: 'Open Sans', sans-serif;
+$base-font-weight: $regular;
+$base-font-size: 13px;
+
 html {
   font-size: $base-font-size;
 }
 
 h1 {
   font-size: 2em;
-  color: $header-color;
+  color: $white;
   margin: 0 0 0.2em 0;
 }
 
 h2 {
   font-size: 1.7em;
-  color: $header-color;
+  color: $white;
   margin: 0 0 0.2em 0;
 }
 
 h3 {
   font-size: 1.2em;
-  color: $header-color;
+  color: $white;
   margin: 0 0 0.2em 0;
 }
 
 a {
   font-size: 1em;
-  color: $link-color;
+  color: $light-blue;
+  text-decoration: none;
 
   &:visited {
-    color: $link-color-visited;
+    color: $light-blue;
   }
+}
+
+label {
+  font-size: 1em;
+  color: $light-blue;
 }
 
 p {
   font-size: 1em;
-  color: $text-color;
+  color: $white;
   margin: 0 0 1em 0;
 }

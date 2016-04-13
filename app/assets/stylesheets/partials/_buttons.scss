@@ -1,18 +1,30 @@
 .button {
-  border-radius: 3px;
-  border: solid 1px;
-  color: white;
-  padding: 0.4em 1em;
-  text-align: baseline;
+  border-radius: 2px;
+  border: 0;
+
+  font-size: 1.07em;
+  font-weight: $bold;
+  color: $light-blue;
+
+  background-image: linear-gradient(
+    scale-color($light-blue, $lightness: -40%),
+    scale-color($light-blue, $lightness: -65%)
+  );
+
+  padding: 0.5em 1.5em;
+  margin: 0 1em 0 0;
+  text-align: center;
   text-decoration: none;
   display: inline-block;
 }
 
 .green-button {
   @extend .button;
-  border: solid scale-color($green, $lightness: -30%) 1px;
+
+  color: $green;
+
   background-image: linear-gradient(
-    $green,
-    scale-color($green, $lightness: -15%)
+    scale-color($green, $lightness: -30%),
+    scale-color($green, $lightness: -60%)
   );
 }

@@ -5,30 +5,12 @@
 
 .l-large-column {
   float: left;
-  width: 70%;
+  width: 62%;
   margin: 2em 0;
 }
 
 .l-small-column {
-  float: left;
-  width: 30%;
+  float: right;
+  width: 35%;
   margin: 2em 0;
-}
-
-.module {
-  background-color: $module-color;
-  border: $border-color solid 1px;
-}
-
-.module-title{
-  background-color: $module-color;
-  border: $border-color solid 1px;
-  padding: 8px 12px;
-  margin: 0;
-}
-
-header {
-  padding: 0.5em 0;
-  border-bottom: $border-color solid 1px;
-  overflow: auto;
 }

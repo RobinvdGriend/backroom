@@ -9,7 +9,7 @@ $header-line-height: 30px;
     line-height: $header-line-height;
     vertical-align: middle;
 
-    color: $header-color;
+    color: $white;
     font-size: 28px;
     font-weight: $bold;
   }
@@ -35,9 +35,15 @@ $header-line-height: 30px;
       line-height: $header-line-height;
       vertical-align: middle;
 
-      color: $header-color;
       text-decoration: none;
       font-weight: $bold;
+      color: $white;
     }
   }
+}
+
+header {
+  background-color: $dark-blue;
+  padding: 0.5em 0;
+  overflow: auto;
 }

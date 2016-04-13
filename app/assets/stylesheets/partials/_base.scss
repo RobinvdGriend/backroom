@@ -1,20 +1,7 @@
-// Font weights
-$light: 100;
-$regular: 400;
-$bold: 700;
+html {
+  background-color: $blue;
+}
 
-// Base Font
-$base-font-family: 'Open Sans', sans-serif;
-$base-font-weight: $regular;
-$base-font-size: 13px;
-
-// Global colors
-$green:         #5ECC37;
-
-$header-color:  #363636;
-$module-color:  #E8E8E8;
-$text-color:    #363636;
-$link-color:    mix(#0000EE, $text-color, 40%); // Mix default link color in with text color
-$link-color-visited: mix(#551A8B, $text-color, 40%);
-$border-color:  #E3E3E3; 
-$succes-color:  $green;
+button {
+  background: none;
+}

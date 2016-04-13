@@ -4,18 +4,20 @@
  */
 
 // Import Open Sans from google fonts
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700&subset=latin,latin-ext);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600&subset=latin,latin-ext);
 
 @import 'bourbon';
+
+@import 'partials/colors';
+@import 'partials/typography';
+@import 'partials/utility';
 
 @import 'partials/base';
 @import 'partials/normalize';
 
 @import 'partials/layouts';
 @import 'partials/modules';
-@import 'partials/utility';
 @import 'partials/header';
-@import 'partials/typography';
 @import 'partials/buttons';
 @import 'partials/posts';
 @import 'partials/rooms';
