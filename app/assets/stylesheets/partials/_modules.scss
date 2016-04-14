@@ -4,7 +4,35 @@
 }
 
 .module-title{
-  padding: 15px 15px 4px;
-  margin: 0;
+  padding: 0 15px 4px;
+  margin: 15px 0 0;
 }
 
+.profile-module {
+  border-radius: 2px 2px 0 0;
+  padding: 15px 15px 4px;
+  margin: 15px 0 0 0;
+
+  border: 1px solid scale-color($blue, $lightness: +25%);
+  @include background-image(radial-gradient(
+    bottom, 
+    scale-color($blue, $lightness: +20%),
+    scale-color($dark-blue, $lightness: +5%)
+    )
+  )
+}
+
+.sub-profile-module {
+  border-radius: 0 0 2px 2px;
+  padding: 6px 15px;
+  margin: 0 0 15px;
+
+  border: 1px solid scale-color($green, $lightness: -30%);
+  border-top: 0;
+  @include background-image(linear-gradient(
+    scale-color($green, $lightness: -60%),
+    scale-color($green, $lightness: -45%)
+    )
+  )
+  
+}

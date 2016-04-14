@@ -1,5 +1,11 @@
-<h1><%= @room.name %></h1>
-<h2>Description</h2>
-<%= simple_format @room.description %>
+<div class="profile-module">
+  <h2><%= @room.name %></h2>
+  <%= simple_format @room.description %>
+</div>
+<div class="sub-profile-module">
+  <% @room.members.each do |member| %>
+    <span><%= member.name %></span>
+  <% end %>
+</div>
 
 <%= render template: "posts/index" %>
