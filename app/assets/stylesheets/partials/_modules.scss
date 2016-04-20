@@ -33,6 +33,12 @@
     scale-color($green, $lightness: -60%),
     scale-color($green, $lightness: -45%)
     )
-  )
+  );
   
+  a {
+    color: $white;
+  }
+  a:hover {
+    color: scale-color($green, $lightness: +40%);
+  }
 }

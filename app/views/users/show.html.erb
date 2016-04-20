@@ -1,19 +1,18 @@
-<h1>Profile</h1>
-<table>
-  <tr>
-    <th>Username</th>
-    <td><%= @user.name %></td>
-  </tr>
-</table>
+<div class="profile-module">
+<h2><%= @user.name %></h2>
+</div>
+
+<div class="sub-profile-module">
 <% if current_user == @user %>
   <%= link_to "Edit profile", edit_user_path %>
 <% end %>
+</div>
 
+<h3 class="module-title">Rooms</h3>
+<div class="module">
 <% if current_user == @user %>
-  <%= render template: "rooms/index" %>
+  <%= render partial: "rooms/list", locals: { rooms: @rooms } %>
 <% else %>
   <span>You can't see other people's rooms.</span>
 <% end %>
 
-<h2>Rooms</h2>
-<h2>Posts</h2>
